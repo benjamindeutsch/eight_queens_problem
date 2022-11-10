@@ -6,9 +6,9 @@ public class Queens {
         instance.printSolutions(8);
     }
 
-    public void printSolutions(int n) {
+    public void printSolutions(int boardSize) {
         counter = 0;
-        boolean[][] board = new boolean[n][n];
+        boolean[][] board = new boolean[boardSize][boardSize];
 
         placeQueen(board, 0);
         System.out.println();
@@ -30,6 +30,7 @@ public class Queens {
             if (this.couldPlaceQueen(board, row, i)) {
                 board[row][i] = true;
                 if (row == board.length - 1) {
+                    //solution found
                     this.printBoard(board);
                     counter++;
                 } else {
